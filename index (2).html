@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KOLink – Booking KOC có bảo chứng</title>
+<meta name="theme-color" content="#0C1F17"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Bricolage+Grotesque:wght@700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#F3EEE3;--cd:#FFFCF5;--tx:#13221B;--mu:#5F6E66;--bd:#DDD5C4;--ac:#0E5A44;--ac2:#E3EFDF;--on:#fff;--hi:#FF5A2C;--lime:#D5F44B;--wn:#B14F08;--ok:#0C7A49;--ink:#0C1F17;--fill:linear-gradient(90deg,#0E5A44,#6FD35A);--glow:rgba(213,244,75,.45);--bo:.8;--sh:0 1px 0 rgba(12,31,23,.04),0 18px 36px -22px rgba(12,31,23,.35);
+--fd:'Bricolage Grotesque','Be Vietnam Pro',system-ui,sans-serif;--fb:'Be Vietnam Pro',system-ui,sans-serif;--fm:'JetBrains Mono',ui-monospace,Menlo,monospace}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#09130E;--cd:#101E17;--tx:#EDF3E6;--mu:#8FA398;--bd:#1F3328;--ac:#CDF458;--ac2:#18291E;--on:#09130E;--hi:#FF7447;--lime:#CDF458;--wn:#F4A55A;--ok:#7CE3A8;--ink:#EDF3E6;--fill:#CDF458;--glow:rgba(205,244,88,.08);--bo:.3;--sh:0 18px 36px -22px #000}}
+:root[data-theme="dark"]{--bg:#09130E;--cd:#101E17;--tx:#EDF3E6;--mu:#8FA398;--bd:#1F3328;--ac:#CDF458;--ac2:#18291E;--on:#09130E;--hi:#FF7447;--lime:#CDF458;--wn:#F4A55A;--ok:#7CE3A8;--ink:#EDF3E6;--fill:#CDF458;--glow:rgba(205,244,88,.08);--bo:.3;--sh:0 18px 36px -22px #000}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;color:var(--tx);font:15px/1.55 var(--fb);background:radial-gradient(900px 520px at 88% -8%,var(--glow),transparent 62%),var(--bg);background-color:var(--bg);min-height:100%}
+a{color:var(--ac)}
+.w{max-width:880px;margin:0 auto;padding:16px 18px 40px}
+body[data-v=land] .w{max-width:1120px}
+h1,h2{font-family:var(--fd)}h1{font-size:22px;margin:0;letter-spacing:-.3px}h2{font-size:18px;margin:22px 0 8px;letter-spacing:-.02em}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 0}
+.logo{display:flex;align-items:center;gap:11px}.logo b{display:block;font:800 22px/1 var(--fd);letter-spacing:-.04em;color:var(--ink)}.logo .s{display:block;font-size:12px;color:var(--mu);margin-top:3px}
+.mk{position:relative;width:40px;height:28px;flex:none}.mk i{position:absolute;top:0;width:28px;height:28px;border-radius:50%}.mk i:first-child{left:0;background:var(--ink)}.mk i:last-child{right:0;background:var(--lime);border:2.5px solid var(--bg)}
+.seg{display:flex;background:var(--cd);border:1px solid var(--bd);border-radius:99px;padding:3px;align-items:center}#role:empty{display:none}
+.seg button{border:0;background:none;color:var(--mu);padding:7px 14px;border-radius:99px;font:inherit;font-weight:600;cursor:pointer}
+.seg button.on{background:var(--ink);color:var(--bg)}
+nav{display:flex;gap:6px;overflow-x:auto;margin:14px 0;padding-bottom:2px}nav:empty{display:none}
+nav button{border:0;background:none;color:var(--mu);padding:8px 15px;border-radius:99px;font:inherit;font-weight:600;cursor:pointer;white-space:nowrap}
+nav button.on{background:var(--ac2);color:var(--ac)}
+.c{background:var(--cd);border:1px solid var(--bd);border-radius:18px;padding:16px;margin:10px 0;box-shadow:var(--sh)}
+.r{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
+.b{border:0;background:var(--ac);color:var(--on);padding:9px 18px;border-radius:99px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.b.g{background:none;color:var(--ac);border:1.5px solid var(--ac)}.b:disabled{opacity:.45;cursor:not-allowed}
+.b.xl{padding:14px 26px;font-size:16px}.b.lm{background:#D5F44B;color:#0C1F17}.b.g.wh{color:#EDF3E6;border-color:#EDF3E6}
+button:focus-visible,input:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+input{font:inherit;color:var(--tx);background:var(--bg);border:1.5px solid var(--bd);border-radius:12px;padding:9px 12px;width:100%}
+.f{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;align-items:end}
+.f label{font-size:12px;color:var(--mu);display:block}
+@media(max-width:640px){.f{grid-template-columns:1fr 1fr}.f>:first-child{grid-column:1/-1}}
+.t{display:inline-block;font-size:12px;padding:3px 10px;border-radius:99px;background:var(--ac2);color:var(--ac);font-weight:600}
+.t.ok{color:var(--ok)}.t.wn{color:var(--wn)}
+.bar{height:10px;background:var(--bd);border-radius:9px;overflow:hidden;margin:6px 0}.bar i{display:block;height:100%;background:var(--fill);border-radius:9px}
+.tb{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--bd);white-space:nowrap;font-variant-numeric:tabular-nums}th{color:var(--mu);font-weight:600}
+.m{color:var(--mu);font-size:13px}.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center}
+.big{font:700 28px/1.2 var(--fm);letter-spacing:-.04em}
+.ban{background:var(--ac2);border:1.5px solid var(--ac);border-radius:18px;padding:14px;margin:10px 0}
+.k{overflow-x:clip}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;padding:34px 0 18px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;padding:6px 13px;border:1px solid var(--bd);border-radius:99px;background:var(--cd);color:var(--mu)}.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--hi)}
+.k h1{font:800 clamp(42px,7.6vw,86px)/.98 var(--fd);letter-spacing:-.045em;margin:20px 0 20px;color:var(--ink)}
+.k h1 em{font-style:normal;background:linear-gradient(transparent 60%,var(--lime) 60% 92%,transparent 92%);padding:0 .05em}
+.lead{font-size:clamp(16px,2vw,19px);color:var(--mu);max-width:50ch;margin:0 0 26px}
+.hv{position:relative;min-height:560px;display:grid;place-items:center}
+.hv:before{content:"";position:absolute;inset:4% 2%;border-radius:44px;background:radial-gradient(circle at 25% 20%,var(--lime),transparent 60%),radial-gradient(circle at 80% 85%,var(--hi),transparent 55%);opacity:var(--bo)}
+.phone{position:relative;width:240px;aspect-ratio:9/18.5;border-radius:38px;background:#0C1F17;padding:9px;box-shadow:0 44px 80px -30px rgba(12,31,23,.6);transform:rotate(4deg)}
+.scr{position:relative;height:100%;border-radius:30px;overflow:hidden;background:linear-gradient(165deg,#FFE1CC 0%,#FF9C73 55%,#E4492E 100%);color:#fff}
+.hdl{position:absolute;top:16px;left:12px;right:12px;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600}
+.av{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#D5F44B,#0E5A44);display:grid;place-items:center;font:800 10px var(--fd);color:#0C1F17}
+.live{margin-left:auto;background:rgba(12,31,23,.7);padding:3px 9px;border-radius:99px;font-size:10.5px}
+.bt{position:absolute;left:50%;top:25%;width:88px;height:176px;transform:translateX(-50%)}
+.bt .bl{position:absolute;top:0;left:33px;width:22px;height:36px;border-radius:12px 12px 0 0;background:#D5F44B}
+.bt .cp{position:absolute;top:32px;left:24px;width:40px;height:26px;border-radius:7px;background:#0C1F17}
+.bt .bd{position:absolute;top:56px;left:0;width:88px;height:120px;border-radius:20px 20px 26px 26px;background:linear-gradient(100deg,rgba(255,255,255,.7),rgba(255,255,255,.16) 45%,rgba(255,255,255,.45));border:1.5px solid rgba(255,255,255,.8);box-shadow:0 24px 30px -14px rgba(120,20,0,.5)}
+.bt .lb{position:absolute;left:9px;right:9px;bottom:20px;height:48px;border-radius:9px;background:#FFFCF5;color:#0C1F17;display:grid;place-items:center;text-align:center;font:800 15px/1.05 var(--fd)}.bt .lb small{display:block;font:600 8.5px var(--fb);letter-spacing:.06em}
+.cap{position:absolute;left:12px;right:12px;bottom:14px;font-size:11.5px;line-height:1.35}.cap b{display:block;font-size:13px}
+.cap .bar{background:rgba(255,255,255,.4);height:6px;margin:8px 0 3px}.cap .bar i{background:#D5F44B}
+.fc{position:absolute;background:var(--cd);border:1px solid var(--bd);border-radius:20px;padding:14px 16px;box-shadow:var(--sh),0 24px 40px -24px rgba(12,31,23,.5)}
+.fc1{left:0;bottom:3%;width:min(285px,72%)}.fc2{right:0;top:7%}
+.fc .big{font-size:25px}.fc table{margin-top:4px;font-size:12px}.fc td{padding:5px 0}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);margin-right:6px}
+.st{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--bd);border-radius:24px;background:var(--cd);margin:38px 0;overflow:hidden}
+.st>div{padding:22px 22px 20px;border-left:1px solid var(--bd)}.st>div:first-child{border-left:0}
+.st b{display:block;font:800 clamp(30px,4vw,46px)/1 var(--fd);letter-spacing:-.04em;color:var(--ink)}.st span{font-size:13px;color:var(--mu);display:block;margin-top:8px}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin:84px 0 24px}
+.k h2{font:800 clamp(30px,4.6vw,52px)/1.02 var(--fd);letter-spacing:-.04em;margin:0;max-width:15ch;color:var(--ink)}.sh p{max-width:38ch;margin:0;color:var(--mu)}
+.duo{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:start}
+.pn{border-radius:30px;padding:clamp(24px,3vw,36px);min-height:360px}.pn.s{background:#0C1F17;color:#EDF3E6}.pn.k2{background:#D5F44B;color:#0C1F17;margin-top:56px}
+.pn .tag{font:600 12px var(--fb);letter-spacing:.09em;text-transform:uppercase;opacity:.7}
+.pn h3{font:800 clamp(26px,3vw,34px)/1.05 var(--fd);letter-spacing:-.035em;margin:12px 0 22px}
+.pn ul{list-style:none;padding:0;margin:0;display:grid;gap:14px}.pn li{padding-top:14px;border-top:1px solid rgba(128,128,128,.4)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-bottom:32px}
+.sp{background:var(--cd);border:1px solid var(--bd);border-radius:24px;padding:22px;box-shadow:var(--sh)}.sp:nth-child(even){transform:translateY(32px)}
+.sp .n{font:800 60px/1 var(--fd);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.6px var(--ac)}
+.sp b{display:block;font:700 18px/1.2 var(--fd);margin:16px 0 6px}.sp p{margin:0;color:var(--mu);font-size:14px}
+.tw{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center}
+.tiers{display:grid;gap:10px}.tr{display:grid;grid-template-columns:120px 1fr 92px;gap:16px;align-items:center;background:var(--cd);border:1px solid var(--bd);border-radius:18px;padding:16px 20px}
+.tr b{font:700 15px var(--fd)}.tr em{font:700 14px var(--fm);font-style:normal;text-align:right}
+.tk{height:14px;border-radius:9px;background:var(--bd);overflow:hidden}.tk i{display:block;height:100%;border-radius:9px;background:var(--fill)}
+.cta{position:relative;overflow:hidden;margin:84px 0 18px;border-radius:34px;background:#0C1F17;color:#EDF3E6;padding:clamp(28px,5vw,60px)}
+.cta:after{content:"";position:absolute;right:-90px;top:-90px;width:300px;height:300px;border-radius:50%;background:#D5F44B}.cta:before{content:"";position:absolute;right:50px;bottom:-110px;width:200px;height:200px;border-radius:50%;background:#FF5A2C}
+.cta>*{position:relative;z-index:1}.k .cta h2{color:#EDF3E6;max-width:18ch}.cta .acts{margin-top:26px}
+@media(max-width:900px){.hero,.duo,.tw{grid-template-columns:1fr}.pn.k2{margin-top:0}.steps{grid-template-columns:1fr 1fr}.sp:nth-child(even){transform:none}.steps{padding-bottom:0}.st{grid-template-columns:1fr 1fr}.st>div:nth-child(3){border-left:0}.st>div:nth-child(n+3){border-top:1px solid var(--bd)}.hv{min-height:540px}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}.tr{grid-template-columns:86px 1fr 70px;padding:14px}.logo .s{display:none}}
+@media(prefers-reduced-motion:no-preference){.bar i,.tk i{transition:width .5s}.fc2{animation:fl 6s ease-in-out infinite}.b{transition:transform .15s}.b:hover:not(:disabled){transform:translateY(-2px)}@keyframes fl{50%{transform:translateY(-9px)}}}
+</style></head><body><div class="w">
+<div class="top"><div class="logo"><span class="mk"><i></i><i></i></span><div><b>KOLink</b><span class="s">Booking KOC có bảo chứng</span></div></div>
+<div class="seg" id="role"></div></div>
+<nav id="nav"></nav><main id="v"></main>
+<p class="m" style="margin-top:28px">Bản mô phỏng MVP: KYC, cổng thanh toán, API sàn và hợp đồng ký số đều là giả lập. Tài khoản và dữ liệu chỉ lưu trong trình duyệt của bạn, đừng dùng mật khẩu thật. <a href="#" onclick="A.reset();return false" style="color:var(--ac)">Đặt lại dữ liệu demo</a></p></div>
+<script>
+const f=n=>Math.round(n).toLocaleString('vi-VN')+'đ',esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])),$=i=>document.getElementById(i);
+const seed=()=>({me:'',role:'',tab:'camp',au:'login',ar:'koc',err:'',fv:'',pend:null,users:[{e:'seller@demo.vn',p:'123456',n:'Nhà Lụa Beauty',r:'seller'},{e:'koc@demo.vn',p:'123456',n:'Minh Anh',r:'koc'},{e:'admin@demo.vn',p:'123456',n:'Admin KOLink',r:'admin'}],nt:[],id:2,lim:1e9,camps:[{id:1,t:'Review serum Vitamin C 30ml',fee:3000000,tg:50}],cons:[],led:[],oth:[['Linh Chi',92],['Bảo Trân',81],['Hùng Review',64]]});
+let S;try{S=JSON.parse(localStorage.getItem('kl4'))}catch(e){}S=S||seed();bind();
+const save=()=>{try{localStorage.setItem('kl4',JSON.stringify(S))}catch(e){}};
+const log=(d,dr,cr,a)=>S.led.unshift({t:new Date().toLocaleTimeString('vi-VN'),d,dr,cr,a});
+const ST={APPLIED:'Chờ Seller duyệt',SIGN:'Chờ ký hợp đồng',FUND:'Chờ nạp cọc',ACTIVE:'Đang thực hiện',MEAS:'Đang đo KPI',DISP:'Đang khiếu nại',DONE:'Hoàn tất'};
+const gc=id=>S.cons.find(c=>c.id==id),isS=()=>S.role=='seller';
+function release(c,amt,d){const fee=amt*.05;log(d,'Escrow','KOC '+(c.kn||'Minh Anh'),amt-fee);log('Phí nền tảng 5%','Escrow','KOLink',fee);c.paid+=amt-fee}
+const A={
+reset(){S=seed();bind();save();R()},
+au(m){S.au=m?'reg':'login';S.err='';S.fv='';S.pend=null;R()},ar(r){S.ar=r?'seller':'koc';R()},login(e,p){const em=(e||$('le').value).trim().toLowerCase(),pw=p||$('lp').value,u=S.users.find(x=>x.e==em&&x.p&&x.p==pw);if(!u){S.fv=em;S.err='Email hoặc mật khẩu không đúng.';R();return}S.me=u.e;S.role=u.r;S.tab=u.r=='admin'?'con':'camp';S.err='';S.fv='';R()},qd(i){A.login(S.users[i].e,S.users[i].p)},g(n){S.gg=n;S.err='';S.gnew=null;R()},gp(i){let e,n;if(i<0){e=$('ge').value.trim().toLowerCase();if(!/^\S+@\S+\.\S+$/.test(e)){S.err='Nhập email hợp lệ.';R();return}n=e.split('@')[0]}else{e=G[i][0];n=G[i][1]}const u=S.users.find(x=>x.e==e);if(u){S.gg=0;A.go(u)}else{S.gnew={e,n};S.gg=2;S.err='';R()}},gr(r){const u={e:S.gnew.e,p:'',n:S.gnew.n,r:r?'seller':'koc',g:1};S.users.push(u);S.gg=0;A.go(u)},go(u){S.me=u.e;S.role=u.r;S.tab=u.r=='admin'?'con':'camp';S.err='';S.fv='';R()},reg(){const n=$('rn').value.trim(),e=$('re').value.trim().toLowerCase(),p=$('rp').value;S.fv=e;if(n.length<2||!/^\S+@\S+\.\S+$/.test(e)||p.length<6){S.err='Nhập tên, email hợp lệ và mật khẩu từ 6 ký tự.';R();return}if(S.users.some(u=>u.e==e)){S.err='Email đã đăng ký. Hãy đăng nhập.';R();return}S.pend={e,p,n,r:S.ar};S.err='';R()},otp(){if($('ot').value.trim()!='123456'){S.err='Mã OTP không đúng.';R();return}const u=S.pend;S.users.push(u);S.pend=null;A.login(u.e,u.p)},out(){S.me='';S.role='';S.err='';R()},enter(m){S.go=true;S.au=m?'reg':'login';S.err='';R()},home(){S.go=false;S.gg=0;S.pend=null;R()},tab(t){S.tab=t;R()},
+ks(n){S.ks=n;R()},cccd(){const v=$('cc').value.replace(/\s/g,'');if(!/^\d{12}$/.test(v)){alert('Số căn cước gồm đúng 12 chữ số.');return}S.ks=2;S.nfc=0;R();const t=setInterval(()=>{if(!S.me){clearInterval(t);return}S.nfc+=20;if(S.nfc>=100){clearInterval(t);S.ks=3}R()},500)},kyc(){S.kyc=true;R()},shop(p){S.shop=p;R()},
+add(){const t=$('ct').value.trim(),fee=+$('cf').value,tg=+$('cg').value;if(!t||fee<1e5||tg<1){alert('Nhập tên chiến dịch, ngân sách (từ 100.000đ) và mục tiêu đơn.');return}S.camps.push({id:S.id++,t,fee,tg});R()},
+apply(id){const k=S.camps.find(x=>x.id==id);S.cons.push({id:S.id++,cid:id,ke:S.me,kn:U().n,t:k.t,fee:k.fee,tg:k.tg,st:'APPLIED',sS:0,sK:0,sm:'none',url:'',or:0,paid:0,kpi:0});S.tab='con';R()},
+ok(id){gc(id).st='SIGN';R()},
+sign(id){const c=gc(id);isS()?c.sS=1:c.sK=1;if(c.sS&&c.sK)c.st='FUND';R()},
+fund(id){const c=gc(id);log('Seller nạp cọc – '+c.t,'Ngân hàng Seller','Escrow',c.fee);c.st='ACTIVE';R()},
+req(id){gc(id).sm='req';R()},ship(id){gc(id).sm='ship';R()},got(id){gc(id).sm='done';R()},
+sub(id){const u=$('u'+id).value.trim();if(!/^https?:\/\//.test(u)){alert('Dán link video bắt đầu bằng https://');return}const c=gc(id);c.url=u;c.st='MEAS';release(c,c.fee*.3,'Giải ngân 30% khi video lên – '+c.t);R()},
+sim(id){const c=gc(id);c.or+=8+Math.floor(Math.random()*15);R()},
+settle(id){const c=gc(id),r=c.or/c.tg,p=r>=1?1:r>=.7?.7:r>=.4?.4:0,pool=c.fee*.7,a=pool*p;c.kpi=Math.min(r,1);if(a>0)release(c,a,'Giải ngân theo KPI ('+Math.round(p*100)+'%) – '+c.t);if(pool-a>0)log('Hoàn cọc dư về Seller','Escrow','Ngân hàng Seller',pool-a);c.st='DONE';R()},late(id){gc(id).late=1;R()},disp(id){const r=$('d'+id).value.trim();if(r.length<5){alert('Nhập lý do khiếu nại (ít nhất 5 ký tự).');return}const c=gc(id);c.dr=r;c.st='DISP';R()},refund(id){const c=gc(id);log('Admin phán quyết: hoàn cọc dư về Seller','Escrow','Ngân hàng Seller',c.fee*.7);c.kpi=0;c.st='DONE';R()}};
+const MSG={apply:['Có KOC vừa apply chiến dịch của bạn','seller'],ok:['Seller đã duyệt bạn. Hãy ký hợp đồng','koc'],sign:['Một bên đã ký hợp đồng','all'],fund:['Tiền đã được bảo chứng. Bạn có thể bắt đầu','koc'],req:['KOC xin hàng mẫu, chờ bạn duyệt','seller'],ship:['Hàng mẫu đã gửi. Còn 7 ngày để lên video','koc'],got:['Hàng mẫu đã giao. Bắt đầu đếm 7 ngày','koc'],late:['KOC quá hạn 7 ngày hàng mẫu, bị trừ điểm tín nhiệm','all'],sub:['KOC đã nộp video, giải ngân 30%','all'],settle:['Đã chốt KPI và giải ngân','all'],disp:['Có khiếu nại mới, tiền bị đóng băng chờ admin','all'],refund:['Admin đã hoàn cọc dư về Seller','all']};
+for(const k in MSG){const o=A[k];A[k]=(...a)=>{const b=JSON.stringify(S.cons);o(...a);if(JSON.stringify(S.cons)!=b){S.nt.unshift({t:new Date().toLocaleTimeString('vi-VN'),m:MSG[k][0],to:MSG[k][1]});R()}}}
+function score(){const d=S.cons.filter(c=>c.st=='DONE'&&c.ke==S.me);return d.length?Math.round(d.reduce((a,c)=>a+60*c.kpi+(c.late?0:40),0)/d.length):null}
+function stp(c){const o=['APPLIED','SIGN','FUND','ACTIVE','MEAS','DONE'],n=['Apply','Ký','Cọc','Làm việc','Đo KPI','Giải ngân'],i=c.st=='DISP'?4:o.indexOf(c.st);return `<div style="display:flex;gap:4px;margin:10px 0">${n.map((x,j)=>`<div style="flex:1;text-align:center;font-size:11px;color:${j<=i?'var(--ac)':'var(--mu)'}"><div class="bar" style="margin:0 0 4px"><i style="width:${j<=i?100:0}%"></i></div>${x}</div>`).join('')}</div>`}
+function kycUI(){const s=S.ks||0,H=t=>`<div class="ban"><b>${t}</b>`;if(s==0)return H('Xác minh danh tính (3 bước)')+`<p class="m">Căn cước → quét chip NFC → xác thực khuôn mặt. Bắt buộc để nhận tiền và theo quy định định danh.</p><button class="b" onclick="A.ks(1)">Bắt đầu</button></div>`;if(s==1)return H('Bước 1/3: Nhập số căn cước')+`<br><input id="cc" inputmode="numeric" placeholder="12 chữ số" style="max-width:240px;margin:8px 0"><br><button class="b" onclick="A.cccd()">Tiếp tục</button></div>`;if(s==2)return H('Bước 2/3: Đặt căn cước sát mặt sau điện thoại')+`<div class="bar"><i style="width:${S.nfc||0}%"></i></div><p class="m">Đang đọc chip NFC… ${S.nfc||0}%</p></div>`;return H('Bước 3/3: Xác thực khuôn mặt')+`<p class="m">Nhìn thẳng và quay nhẹ đầu để so khớp với ảnh trên chip.</p><button class="b" onclick="A.kyc()">Hoàn tất xác thực</button></div>`}
+function U(){return S.users.find(u=>u.e==S.me)}
+function bind(){['kyc','ks','nfc','shop'].forEach(k=>Object.defineProperty(S,k,{get(){return (U()||{})[k]},set(v){const u=U();if(u)u[k]=v},configurable:true,enumerable:false}))}
+const G=[['lanphuong.creator@gmail.com','Lan Phương'],['quanghuy.store@gmail.com','Quang Huy']];
+function vG(){const x=`<div class='c' style='max-width:420px;margin:24px auto'>`;if(S.gg==2)return x+`<b>Tạo tài khoản KOLink</b><p class='m'>Google đã xác nhận ${esc(S.gnew.e)}. Bạn tham gia với tư cách:</p><div class='acts'><button class='b' onclick='A.gr(0)'>KOC / Creator</button><button class='b' onclick='A.gr(1)'>Nhãn hàng / Seller</button></div><div class='acts'><button class='b g' onclick='A.g(0)'>Hủy</button></div></div>`;return x+`<b>Chọn tài khoản Google</b><p class='m'>để tiếp tục tới KOLink. KOLink chỉ nhận tên và email của bạn, không nhận mật khẩu Google.</p>`+G.map((a,i)=>`<button class='b g' style='display:block;width:100%;text-align:left;margin:6px 0' onclick='A.gp(${i})'>${a[1]}<br><span class='m'>${a[0]}</span></button>`).join('')+`<input id='ge' type='email' placeholder='Hoặc nhập email Google khác' style='margin-top:8px'>${S.err?`<p style='color:var(--wn)' role='alert'>${esc(S.err)}</p>`:''}<div class='acts'><button class='b' onclick='A.gp(-1)'>Dùng email này</button><button class='b g' onclick='A.g(0)'>Hủy</button></div><p class='m'>Màn hình giả lập, chưa kết nối Google thật.</p></div>`}
+function vLand(){return `<div class="k"><section class="hero"><div><span class="eyebrow"><i></i>Escrow cho booking KOC · Shopee · TikTok Shop</span><h1>Đơn thật về,<br><em>tiền mới chạy.</em></h1><p class="lead">Seller khóa tiền cọc trong tài khoản bảo chứng. KOC nhận 30% ngay khi video lên, phần còn lại tự giải ngân theo số đơn thật từ sàn. Không ai phải tin vào lời hứa của ai.</p><div class="acts"><button class="b xl" onclick="A.enter(1)">Dùng thử miễn phí</button><button class="b g xl" onclick="A.qd(0)">Vào nhanh: Seller</button><button class="b g xl" onclick="A.qd(1)">Vào nhanh: KOC</button></div><p class="m" style="margin-top:16px">Bản thử nghiệm giả lập. Không dùng tiền thật hoặc mật khẩu thật.</p></div>
+<div class="hv"><div class="phone"><div class="scr"><div class="hdl"><span class="av">MA</span>@minhanh.review<span class="live">Đã lên video</span></div><div class="bt"><span class="bl"></span><span class="cp"></span><span class="bd"><span class="lb"><span>VIT C<small>SERUM 30ML</small></span></span></span></div><div class="cap"><b>Review serum Vitamin C</b>40/50 đơn thành công<div class="bar"><i style="width:80%"></i></div></div></div></div>
+<div class="fc fc2"><span class="m"><span class="dot"></span>Giải ngân 30% khi video lên</span><div class="big">+855.000đ</div></div>
+<div class="fc fc1"><div class="r"><b>Review serum Vitamin C</b><span class="t">Đang đo KPI</span></div><p class="m" style="margin:2px 0 0">Ví dụ minh họa · Tiền đang bảo chứng</p><div class="big">3.000.000đ</div><div class="bar"><i style="width:80%"></i></div><table><tr><td>Chi khi video lên</td><td><b>855.000đ</b></td></tr><tr><td>Chi theo KPI (bậc 70%)</td><td><b>1.396.500đ</b></td></tr><tr><td>Hoàn lại Seller</td><td><b>630.000đ</b></td></tr></table></div></div></section>
+<div class="st"><div><b>30%</b><span>nhận ngay khi video lên</span></div><div><b>4 bậc</b><span>chia tiền 100 · 70 · 40 · 0%</span></div><div><b>7 ngày</b><span>hạn lên video sau khi giao hàng mẫu</span></div><div><b>5%</b><span>phí nền tảng, chỉ tính trên tiền đã chi</span></div></div>
+<div class="sh"><h2>Hai bên cùng nhìn một con số</h2><p>KOC sợ bị quỵt tiền, nhãn hàng sợ trả tiền cho lượt xem ảo. KOLink đặt cả hai trước cùng một sổ cái.</p></div>
+<div class="duo"><div class="pn s"><span class="tag">Dành cho Seller</span><h3>Trả tiền cho kết quả, không phải cho lời hứa.</h3><ul><li>Tiền cọc bị khóa và chỉ chi khi KPI đạt.</li><li>KPI đo từ đơn hàng thật trên sàn, không phải số view.</li><li>Hàng mẫu có hạn 7 ngày. Quá hạn, KOC bị trừ điểm tín nhiệm.</li></ul></div><div class="pn k2"><span class="tag">Dành cho KOC</span><h3>Thấy tiền trước khi nhận việc.</h3><ul><li>Tiền đã nằm trong bảo chứng ngay từ lúc ký.</li><li>Nhận 30% ngay khi video lên, phần còn lại theo KPI.</li><li>Xếp hạng theo hiệu quả thật, không theo số follower.</li></ul></div></div>
+<div class="sh"><h2>Bốn bước từ ký đến nhận tiền</h2><p>Mỗi bước đều có trạng thái rõ ràng, cả hai bên cùng thấy.</p></div>
+<div class="steps"><div class="sp"><div class="n">01</div><b>Ký hợp đồng điện tử</b><p>KPI và công thức chia tiền rõ trước khi ký.</p></div><div class="sp"><div class="n">02</div><b>Seller nạp cọc</b><p>Tiền vào tài khoản bảo chứng.</p></div><div class="sp"><div class="n">03</div><b>KOC nhận hàng, đăng video</b><p>Xin hàng mẫu một chạm, nộp link.</p></div><div class="sp"><div class="n">04</div><b>Đo KPI, tự giải ngân</b><p>Đạt bậc nào, chi bậc đó.</p></div></div>
+<div class="sh"><h2>Đạt bậc nào, chi bậc đó</h2></div>
+<div class="tw"><p class="lead" style="margin:0">70% ngân sách là phần KPI. Số đơn thành công so với mục tiêu quyết định KOC nhận bao nhiêu, phần chưa chi hoàn về Seller.</p><div class="tiers"><div class="tr"><b>Đạt 100%</b><div class="tk"><i style="width:100%"></i></div><em>chi 100%</em></div><div class="tr"><b>Từ 70%</b><div class="tk"><i style="width:70%"></i></div><em>chi 70%</em></div><div class="tr"><b>Từ 40%</b><div class="tk"><i style="width:40%"></i></div><em>chi 40%</em></div><div class="tr"><b>Dưới 40%</b><div class="tk"><i style="width:0"></i></div><em>chi 0%</em></div></div></div>
+<div class="cta"><h2>Chạy thử một chiến dịch từ đầu đến cuối trong vài phút.</h2><div class="acts"><button class="b lm xl" onclick="A.enter(1)">Tạo tài khoản</button><button class="b g wh xl" onclick="A.enter(0)">Tôi đã có tài khoản</button></div></div></div>`}
+function vAuth(){if(S.gg)return vG();const e=S.err?`<p style='color:var(--wn)' role='alert'>${esc(S.err)}</p>`:'',tb=(m,l)=>`<button class='${(S.au=='reg')==!!m?'on':''}' onclick='A.au(${m})'>${l}</button>`;let h=`<div class='c' style='max-width:420px;margin:24px auto'><a href='#' onclick='A.home();return false' class='m'>← Về trang chủ</a><div class='seg' style='margin:10px 0 14px'>${tb(0,'Đăng nhập')}${tb(1,'Đăng ký')}</div>`;
+if(S.pend)h+=`<b>Xác thực tài khoản</b><p class='m'>Mã OTP đã gửi tới ${esc(S.pend.e)}. (Demo: nhập 123456)</p><input id='ot' inputmode='numeric' placeholder='Mã 6 số'>${e}<div class='acts'><button class='b' onclick='A.otp()'>Xác nhận</button><button class='b g' onclick='A.au(1)'>Quay lại</button></div>`;
+else if(S.au=='login')h+=`<b>Chào mừng quay lại</b><p class='m'>Đăng nhập để tiếp tục booking.</p><div style='display:grid;gap:8px'><input id='le' type='email' placeholder='Email' value='${esc(S.fv)}' autocomplete='username'><input id='lp' type='password' placeholder='Mật khẩu' autocomplete='current-password'></div>${e}<div class='acts'><button class='b' onclick='A.login()'>Đăng nhập</button></div><div class='acts'><button class='b g' style='width:100%' onclick='A.g(1)'>G&nbsp; Tiếp tục với Google</button></div><p class='m' style='margin-top:16px'>Tài khoản demo (mật khẩu 123456):</p><div class='acts'><button class='b g' onclick='A.qd(0)'>Seller</button><button class='b g' onclick='A.qd(1)'>KOC</button><button class='b g' onclick='A.qd(2)'>Admin</button></div>`;
+else h+=`<b>Tạo tài khoản</b><p class='m'>Bạn tham gia với tư cách:</p><div class='seg' style='margin-bottom:10px'><button class='${S.ar=='koc'?'on':''}' onclick='A.ar(0)'>KOC / Creator</button><button class='${S.ar=='seller'?'on':''}' onclick='A.ar(1)'>Nhãn hàng / Seller</button></div><div style='display:grid;gap:8px'><input id='rn' placeholder='${S.ar=='koc'?'Tên hiển thị':'Tên gian hàng'}'><input id='re' type='email' placeholder='Email' value='${esc(S.fv)}'><input id='rp' type='password' placeholder='Mật khẩu (từ 6 ký tự)' autocomplete='new-password'></div>${e}<div class='acts'><button class='b' onclick='A.reg()'>Tiếp tục</button></div><div class='acts'><button class='b g' style='width:100%' onclick='A.g(1)'>G&nbsp; Đăng ký bằng Google</button></div>`;
+return h+'</div>'}
+function vNt(){const l=S.nt.filter(n=>n.to=='all'||n.to==S.role);return l.length?l.map(n=>`<div class="c r"><span>${esc(n.m)}</span><span class="m">${n.t}</span></div>`).join(''):'<div class="c m">Chưa có thông báo.</div>'}
+function card(c){let a='',x='';const mk=(l,fn,g)=>`<button class="b ${g?'g':''}" onclick="A.${fn}(${c.id})">${l}</button>`;
+if(c.st=='APPLIED')a=isS()?mk('Duyệt KOC này','ok'):'<span class="m">Đang chờ Seller duyệt</span>';
+if(c.st=='SIGN'){x=`<p class="m">Seller: ${c.sS?'✓ đã ký':'chưa ký'} · KOC: ${c.sK?'✓ đã ký':'chưa ký'} · KPI: ${c.tg} đơn thành công, chia tiền theo bậc 100% / 70% / 40% / 0%</p>`;a=(isS()&&!c.sS)||(!isS()&&!c.sK)?mk('Ký hợp đồng (OTP giả lập)','sign'):''}
+if(c.st=='FUND')a=isS()?mk('Nạp cọc '+f(c.fee),'fund'):'<span class="m">Chờ Seller nạp cọc vào escrow</span>';
+if(c.st=='ACTIVE'||c.st=='MEAS'){const sm={none:'Chưa xin hàng mẫu',req:'KOC đã xin hàng, chờ duyệt',ship:'Đã gửi hàng, theo dõi 7 ngày',done:'Đã giao – hạn lên video 7 ngày'}[c.sm];x=`<p class="m">Hàng mẫu: ${sm}${c.late?' · Quá hạn 7 ngày, bị trừ điểm tín nhiệm':''}</p>`;
+if(c.sm=='none'&&!isS())a=mk('Xin hàng mẫu (1 chạm)','req');if(c.sm=='req'&&isS())a=mk('Duyệt & tạo vận đơn','ship');if(c.sm=='ship'&&isS())a=mk('Mô phỏng: hàng đã giao','got','g');if(c.sm=='done'&&isS()&&!c.late&&c.st=='ACTIVE')a+=mk('Mô phỏng: KOC trễ 7 ngày','late','g');
+if(c.st=='ACTIVE'&&!isS())a+=`<input id="u${c.id}" placeholder="Dán link video đã đăng" style="max-width:260px"><button class="b" onclick="A.sub(${c.id})">Nộp video</button>`}
+if(c.st=='MEAS'){const p=Math.min(100,c.or/c.tg*100);x+=`<p class="m">Video: ${esc(c.url)}</p><div class="bar"><i style="width:${p}%"></i></div><p class="m">${c.or}/${c.tg} đơn thành công (${Math.round(p)}%)</p>`;a=mk('Đồng bộ API sàn (giả lập)','sim','g')+(isS()?mk('Chốt KPI & giải ngân','settle'):'')+(S.role=='admin'?'':`<input id="d${c.id}" placeholder="Lý do khiếu nại" style="max-width:220px"><button class="b g" onclick="A.disp(${c.id})">Khiếu nại</button>`)}
+if(c.st=='DONE')x=`<p class="m">KPI đạt ${Math.round(c.kpi*100)}% · KOC nhận ròng ${f(c.paid)}</p>`;
+if(c.st=='DISP')x=`<p class="m">Lý do: ${esc(c.dr)}. Tiền bị đóng băng, chờ admin phán quyết.</p>`;if(S.role=='admin')a=c.st=='DISP'?mk('Chốt theo dữ liệu sàn','settle')+mk('Hoàn cọc về Seller','refund',1):'';return `<div class="c"><div class="r"><b>${esc(c.t)}</b><span class="t ${c.st=='DONE'?'ok':''}">${ST[c.st]}</span></div><div class="m">Phí ${f(c.fee)} · KOC: ${esc(c.kn||'Minh Anh')} ✓</div>${stp(c)}${x}<div class="acts">${a}</div></div>`}
+function vCamp(){let h='';
+if(isS()&&!S.shop)h+=`<div class="ban"><b>Bước 1: Kết nối gian hàng</b><p class="m">KOLink chỉ cần quyền đọc đơn hàng để đo KPI tự động, không có quyền rút tiền.</p><button class="b" onclick="A.shop('Shopee')">Kết nối Shopee</button> <button class="b g" onclick="A.shop('TikTok Shop')">Kết nối TikTok Shop</button></div>`;else if(isS()){h+=`<span class="t ok">✓ Đã kết nối ${esc(S.shop)}</span><h2>Tạo chiến dịch</h2><div class="c f"><div><label>Tên chiến dịch</label><input id="ct" placeholder="VD: Review kem chống nắng"></div><div><label>Ngân sách (đ)</label><input id="cf" type="number" value="2000000"></div><div><label>Mục tiêu (đơn)</label><input id="cg" type="number" value="40"></div><button class="b" onclick="A.add()">Đăng</button></div>`}
+else if(!S.kyc)h+=kycUI();
+else h+=`<span class="t ok">✓ Verified Creator</span>`;
+h+='<h2>Chiến dịch đang mở</h2>';
+S.camps.forEach(k=>{const ap=S.cons.some(c=>c.cid==k.id&&c.ke==S.me);h+=`<div class="c"><div class="r"><div><b>${esc(k.t)}</b><div class="m">Ngân sách ${f(k.fee)} · mục tiêu ${k.tg} đơn</div></div>${isS()?`<span class="t">${S.cons.filter(c=>c.cid==k.id).length} KOC apply</span>`:`<button class="b" ${!S.kyc||ap?'disabled':''} onclick="A.apply(${k.id})">${ap?'Đã apply':'Apply'}</button>`}</div></div>`});return h}
+function mine(){return S.role=='koc'?S.cons.filter(c=>c.ke==S.me):S.cons}function vCon(){return mine().length?mine().map(card).join(''):'<div class="c m">Chưa có hợp đồng. Vào “Chiến dịch” và để KOC apply.</div>'}
+function vLed(){const held=S.cons.reduce((a,c)=>a+(['ACTIVE','MEAS','DISP'].includes(c.st)?c.fee-c.paid-(c.paid/.95-c.paid):0),0);
+return `<div class="c"><span class="m">Tiền đang bảo chứng (escrow)</span><div class="big">${f(held)}</div></div><div class="c tb"><table><tr><th>Giờ</th><th>Nội dung</th><th>Nợ</th><th>Có</th><th>Số tiền</th></tr>${S.led.map(l=>`<tr><td>${l.t}</td><td>${esc(l.d)}</td><td>${l.dr}</td><td>${l.cr}</td><td>${f(l.a)}</td></tr>`).join('')||'<tr><td colspan=5 class="m">Chưa có bút toán</td></tr>'}</table></div><p class="m">Mỗi giao dịch ghi hai bên (nợ/có), chỉ thêm mới, không sửa.</p>`}
+function vScore(){const s=score(),r=[...S.oth,[U().n+' (bạn)',s]].filter(x=>x[1]!==null).sort((a,b)=>b[1]-a[1]);
+return `<div class="c m">Điểm = 60% tỷ lệ hoàn thành KPI + 40% đúng hạn. Không tính theo số follower.</div>`+r.map((x,i)=>`<div class="c r"><span>${i+1}. ${esc(x[0])}</span><b>${x[1]}</b></div>`).join('')+(s===null?'<p class="m">Hoàn tất một hợp đồng để Minh Anh vào bảng xếp hạng.</p>':'')}
+function vTax(){const inc=S.cons.filter(c=>c.ke==S.me).reduce((a,c)=>a+c.paid,0),p=inc/S.lim*100,w=p>=100?['wn','Đã vượt ngưỡng: cần kê khai thuế.']:p>=90?['wn','Sắp chạm ngưỡng (≥90%).']:p>=70?['wn','Đã dùng ≥70% ngưỡng.']:['ok','Còn an toàn so với ngưỡng.'];
+return `<div class="c"><span class="m">Thu nhập qua KOLink (ròng)</span><div class="big">${f(inc)}</div><div class="bar"><i style="width:${Math.min(100,p)}%"></i></div><span class="t ${w[0]}">${w[1]}</span><p class="m">Ngưỡng cảnh báo/năm (chỉnh được, xác nhận với kế toán):</p><input type="number" value="${S.lim}" onchange="S.lim=Math.max(1,+this.value);R()" style="max-width:220px"></div><div class="c tb"><table><tr><th>Hợp đồng</th><th>Thu nhập ròng</th></tr>${S.cons.filter(c=>c.paid&&c.ke==S.me).map(c=>`<tr><td>${esc(c.t)}</td><td>${f(c.paid)}</td></tr>`).join('')||'<tr><td colspan=2 class="m">Chưa có khoản thu</td></tr>'}</table></div>`}
+function R(){save();document.body.dataset.v=S.me?'app':(S.go?'auth':'land');if(!S.me){$('role').innerHTML='';$('nav').innerHTML='';$('v').innerHTML=S.go?vAuth():vLand();return}$('role').innerHTML=`<span class='m' style='padding:0 8px;align-self:center'>${esc(U().n)} · ${{seller:'Seller',koc:'KOC',admin:'Admin'}[S.role]}</span><button onclick='A.out()'>Đăng xuất</button>`;
+const nn=S.nt.filter(n=>n.to=='all'||n.to==S.role).length,ad=S.role=='admin';if(ad&&!['con','led'].includes(S.tab))S.tab='con';const T=ad?[['con','Khiếu nại & hợp đồng'],['led','Sổ cái escrow']]:[['camp','Chiến dịch'],['con','Hợp đồng'],['nt','Thông báo ('+nn+')'],['led','Sổ cái escrow'],['sc','Tín nhiệm']].concat(S.role=='koc'?[['tax','Thuế']]:[]);$('nav').innerHTML=T.map(t=>`<button class="${S.tab==t[0]?'on':''}" onclick="A.tab('${t[0]}')">${t[1]}</button>`).join('');
+$('v').innerHTML={camp:vCamp,con:vCon,nt:vNt,led:vLed,sc:vScore,tax:vTax}[S.tab]()}
+R();
+</script></body></html>
