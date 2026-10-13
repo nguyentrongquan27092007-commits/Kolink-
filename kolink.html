@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KOLink – Booking KOC có bảo chứng</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#eef3f6;--cd:#fff;--tx:#0e2233;--mu:#5b6f80;--bd:#d5dfe6;--ac:#0b6e6e;--ac2:#e0f2f1;--wn:#b45f06;--ok:#16794a;--ink:#0e2a47}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b141c;--cd:#13212d;--tx:#e6eef4;--mu:#92a6b6;--bd:#243746;--ac:#4fd1c5;--ac2:#12333a;--wn:#f0a64a;--ok:#5ad19a;--ink:#e6eef4}}
+:root[data-theme="dark"]{--bg:#0b141c;--cd:#13212d;--tx:#e6eef4;--mu:#92a6b6;--bd:#243746;--ac:#4fd1c5;--ac2:#12333a;--wn:#f0a64a;--ok:#5ad19a;--ink:#e6eef4}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 'Be Vietnam Pro',system-ui,sans-serif}
+.w{max-width:880px;margin:0 auto;padding:16px}
+h1{font-size:22px;margin:0;letter-spacing:-.3px}h2{font-size:17px;margin:18px 0 8px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.sub{color:var(--mu);font-size:13px;margin:2px 0 0}
+.seg{display:flex;background:var(--cd);border:1px solid var(--bd);border-radius:10px;padding:3px}
+.seg button{border:0;background:none;color:var(--mu);padding:7px 14px;border-radius:8px;font:inherit;font-weight:500;cursor:pointer}
+.seg button.on{background:var(--ink);color:var(--bg)}
+nav{display:flex;gap:4px;overflow-x:auto;margin:14px 0;border-bottom:1px solid var(--bd)}
+nav button{border:0;background:none;color:var(--mu);padding:9px 12px;font:inherit;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}
+nav button.on{color:var(--ac);border-color:var(--ac)}
+.c{background:var(--cd);border:1px solid var(--bd);border-radius:10px;padding:14px;margin:10px 0}
+.r{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
+.b{border:0;background:var(--ac);color:var(--bg);padding:8px 14px;border-radius:8px;font:inherit;font-weight:500;cursor:pointer}
+:root:not([data-theme="dark"]) .b{color:#fff}
+.b.g{background:none;color:var(--ac);border:1px solid var(--ac)}.b:disabled{opacity:.45;cursor:not-allowed}
+button:focus-visible,input:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+input{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:8px 10px;width:100%}
+.f{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;align-items:end}
+.f label{font-size:12px;color:var(--mu);display:block}
+@media(max-width:640px){.f{grid-template-columns:1fr 1fr}.f>:first-child{grid-column:1/-1}}
+.t{display:inline-block;font-size:12px;padding:2px 9px;border-radius:99px;background:var(--ac2);color:var(--ac);font-weight:500}
+.t.ok{color:var(--ok)}.t.wn{color:var(--wn)}
+.bar{height:8px;background:var(--bd);border-radius:6px;overflow:hidden;margin:6px 0}.bar i{display:block;height:100%;background:var(--ac)}
+.tb{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--bd);white-space:nowrap}th{color:var(--mu);font-weight:500}
+.m{color:var(--mu);font-size:13px}.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center}
+.big{font-size:26px;font-weight:700;letter-spacing:-.5px}
+.ban{background:var(--ac2);border:1px solid var(--ac);border-radius:10px;padding:12px;margin:10px 0}
+@media(prefers-reduced-motion:no-preference){.bar i{transition:width .5s}}
+</style></head><body><div class="w">
+<div class="top"><div><h1>KOLink</h1><p class="sub">Booking KOC có bảo chứng · tiền chỉ ra khi KPI đạt</p></div>
+<div class="seg" id="role"></div></div>
+<nav id="nav"></nav><main id="v"></main>
+<p class="m" style="margin-top:28px">Bản mô phỏng MVP: KYC, cổng thanh toán, API sàn và hợp đồng ký số đều là giả lập. Tài khoản và dữ liệu chỉ lưu trong trình duyệt của bạn, đừng dùng mật khẩu thật. <a href="#" onclick="A.reset();return false" style="color:var(--ac)">Đặt lại dữ liệu demo</a></p></div>
+<script>
+const f=n=>Math.round(n).toLocaleString('vi-VN')+'đ',esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])),$=i=>document.getElementById(i);
+const seed=()=>({me:'',role:'',tab:'camp',au:'login',ar:'koc',err:'',fv:'',pend:null,users:[{e:'seller@demo.vn',p:'123456',n:'Nhà Lụa Beauty',r:'seller'},{e:'koc@demo.vn',p:'123456',n:'Minh Anh',r:'koc'},{e:'admin@demo.vn',p:'123456',n:'Admin KOLink',r:'admin'}],nt:[],id:2,lim:1e9,camps:[{id:1,t:'Review serum Vitamin C 30ml',fee:3000000,tg:50}],cons:[],led:[],oth:[['Linh Chi',92],['Bảo Trân',81],['Hùng Review',64]]});
+let S;try{S=JSON.parse(localStorage.getItem('kl4'))}catch(e){}S=S||seed();bind();
+const save=()=>{try{localStorage.setItem('kl4',JSON.stringify(S))}catch(e){}};
+const log=(d,dr,cr,a)=>S.led.unshift({t:new Date().toLocaleTimeString('vi-VN'),d,dr,cr,a});
+const ST={APPLIED:'Chờ Seller duyệt',SIGN:'Chờ ký hợp đồng',FUND:'Chờ nạp cọc',ACTIVE:'Đang thực hiện',MEAS:'Đang đo KPI',DISP:'Đang khiếu nại',DONE:'Hoàn tất'};
+const gc=id=>S.cons.find(c=>c.id==id),isS=()=>S.role=='seller';
+function release(c,amt,d){const fee=amt*.05;log(d,'Escrow','KOC '+(c.kn||'Minh Anh'),amt-fee);log('Phí nền tảng 5%','Escrow','KOLink',fee);c.paid+=amt-fee}
+const A={
+reset(){S=seed();bind();save();R()},
+au(m){S.au=m?'reg':'login';S.err='';S.fv='';S.pend=null;R()},ar(r){S.ar=r?'seller':'koc';R()},login(e,p){const em=(e||$('le').value).trim().toLowerCase(),pw=p||$('lp').value,u=S.users.find(x=>x.e==em&&x.p&&x.p==pw);if(!u){S.fv=em;S.err='Email hoặc mật khẩu không đúng.';R();return}S.me=u.e;S.role=u.r;S.tab=u.r=='admin'?'con':'camp';S.err='';S.fv='';R()},qd(i){A.login(S.users[i].e,S.users[i].p)},g(n){S.gg=n;S.err='';S.gnew=null;R()},gp(i){let e,n;if(i<0){e=$('ge').value.trim().toLowerCase();if(!/^\S+@\S+\.\S+$/.test(e)){S.err='Nhập email hợp lệ.';R();return}n=e.split('@')[0]}else{e=G[i][0];n=G[i][1]}const u=S.users.find(x=>x.e==e);if(u){S.gg=0;A.go(u)}else{S.gnew={e,n};S.gg=2;S.err='';R()}},gr(r){const u={e:S.gnew.e,p:'',n:S.gnew.n,r:r?'seller':'koc',g:1};S.users.push(u);S.gg=0;A.go(u)},go(u){S.me=u.e;S.role=u.r;S.tab=u.r=='admin'?'con':'camp';S.err='';S.fv='';R()},reg(){const n=$('rn').value.trim(),e=$('re').value.trim().toLowerCase(),p=$('rp').value;S.fv=e;if(n.length<2||!/^\S+@\S+\.\S+$/.test(e)||p.length<6){S.err='Nhập tên, email hợp lệ và mật khẩu từ 6 ký tự.';R();return}if(S.users.some(u=>u.e==e)){S.err='Email đã đăng ký. Hãy đăng nhập.';R();return}S.pend={e,p,n,r:S.ar};S.err='';R()},otp(){if($('ot').value.trim()!='123456'){S.err='Mã OTP không đúng.';R();return}const u=S.pend;S.users.push(u);S.pend=null;A.login(u.e,u.p)},out(){S.me='';S.role='';S.err='';R()},tab(t){S.tab=t;R()},
+ks(n){S.ks=n;R()},cccd(){const v=$('cc').value.replace(/\s/g,'');if(!/^\d{12}$/.test(v)){alert('Số căn cước gồm đúng 12 chữ số.');return}S.ks=2;S.nfc=0;R();const t=setInterval(()=>{if(!S.me){clearInterval(t);return}S.nfc+=20;if(S.nfc>=100){clearInterval(t);S.ks=3}R()},500)},kyc(){S.kyc=true;R()},shop(p){S.shop=p;R()},
+add(){const t=$('ct').value.trim(),fee=+$('cf').value,tg=+$('cg').value;if(!t||fee<1e5||tg<1){alert('Nhập tên chiến dịch, ngân sách (từ 100.000đ) và mục tiêu đơn.');return}S.camps.push({id:S.id++,t,fee,tg});R()},
+apply(id){const k=S.camps.find(x=>x.id==id);S.cons.push({id:S.id++,cid:id,ke:S.me,kn:U().n,t:k.t,fee:k.fee,tg:k.tg,st:'APPLIED',sS:0,sK:0,sm:'none',url:'',or:0,paid:0,kpi:0});S.tab='con';R()},
+ok(id){gc(id).st='SIGN';R()},
+sign(id){const c=gc(id);isS()?c.sS=1:c.sK=1;if(c.sS&&c.sK)c.st='FUND';R()},
+fund(id){const c=gc(id);log('Seller nạp cọc – '+c.t,'Ngân hàng Seller','Escrow',c.fee);c.st='ACTIVE';R()},
+req(id){gc(id).sm='req';R()},ship(id){gc(id).sm='ship';R()},got(id){gc(id).sm='done';R()},
+sub(id){const u=$('u'+id).value.trim();if(!/^https?:\/\//.test(u)){alert('Dán link video bắt đầu bằng https://');return}const c=gc(id);c.url=u;c.st='MEAS';release(c,c.fee*.3,'Giải ngân 30% khi video lên – '+c.t);R()},
+sim(id){const c=gc(id);c.or+=8+Math.floor(Math.random()*15);R()},
+settle(id){const c=gc(id),r=c.or/c.tg,p=r>=1?1:r>=.7?.7:r>=.4?.4:0,pool=c.fee*.7,a=pool*p;c.kpi=Math.min(r,1);if(a>0)release(c,a,'Giải ngân theo KPI ('+Math.round(p*100)+'%) – '+c.t);if(pool-a>0)log('Hoàn cọc dư về Seller','Escrow','Ngân hàng Seller',pool-a);c.st='DONE';R()},late(id){gc(id).late=1;R()},disp(id){const r=$('d'+id).value.trim();if(r.length<5){alert('Nhập lý do khiếu nại (ít nhất 5 ký tự).');return}const c=gc(id);c.dr=r;c.st='DISP';R()},refund(id){const c=gc(id);log('Admin phán quyết: hoàn cọc dư về Seller','Escrow','Ngân hàng Seller',c.fee*.7);c.kpi=0;c.st='DONE';R()}};
+const MSG={apply:['Có KOC vừa apply chiến dịch của bạn','seller'],ok:['Seller đã duyệt bạn. Hãy ký hợp đồng','koc'],sign:['Một bên đã ký hợp đồng','all'],fund:['Tiền đã được bảo chứng. Bạn có thể bắt đầu','koc'],req:['KOC xin hàng mẫu, chờ bạn duyệt','seller'],ship:['Hàng mẫu đã gửi. Còn 7 ngày để lên video','koc'],got:['Hàng mẫu đã giao. Bắt đầu đếm 7 ngày','koc'],late:['KOC quá hạn 7 ngày hàng mẫu, bị trừ điểm tín nhiệm','all'],sub:['KOC đã nộp video, giải ngân 30%','all'],settle:['Đã chốt KPI và giải ngân','all'],disp:['Có khiếu nại mới, tiền bị đóng băng chờ admin','all'],refund:['Admin đã hoàn cọc dư về Seller','all']};
+for(const k in MSG){const o=A[k];A[k]=(...a)=>{const b=JSON.stringify(S.cons);o(...a);if(JSON.stringify(S.cons)!=b){S.nt.unshift({t:new Date().toLocaleTimeString('vi-VN'),m:MSG[k][0],to:MSG[k][1]});R()}}}
+function score(){const d=S.cons.filter(c=>c.st=='DONE'&&c.ke==S.me);return d.length?Math.round(d.reduce((a,c)=>a+60*c.kpi+(c.late?0:40),0)/d.length):null}
+function stp(c){const o=['APPLIED','SIGN','FUND','ACTIVE','MEAS','DONE'],n=['Apply','Ký','Cọc','Làm việc','Đo KPI','Giải ngân'],i=c.st=='DISP'?4:o.indexOf(c.st);return `<div style="display:flex;gap:4px;margin:10px 0">${n.map((x,j)=>`<div style="flex:1;text-align:center;font-size:11px;color:${j<=i?'var(--ac)':'var(--mu)'}"><div class="bar" style="margin:0 0 4px"><i style="width:${j<=i?100:0}%"></i></div>${x}</div>`).join('')}</div>`}
+function kycUI(){const s=S.ks||0,H=t=>`<div class="ban"><b>${t}</b>`;if(s==0)return H('Xác minh danh tính (3 bước)')+`<p class="m">Căn cước → quét chip NFC → xác thực khuôn mặt. Bắt buộc để nhận tiền và theo quy định định danh.</p><button class="b" onclick="A.ks(1)">Bắt đầu</button></div>`;if(s==1)return H('Bước 1/3: Nhập số căn cước')+`<br><input id="cc" inputmode="numeric" placeholder="12 chữ số" style="max-width:240px;margin:8px 0"><br><button class="b" onclick="A.cccd()">Tiếp tục</button></div>`;if(s==2)return H('Bước 2/3: Đặt căn cước sát mặt sau điện thoại')+`<div class="bar"><i style="width:${S.nfc||0}%"></i></div><p class="m">Đang đọc chip NFC… ${S.nfc||0}%</p></div>`;return H('Bước 3/3: Xác thực khuôn mặt')+`<p class="m">Nhìn thẳng và quay nhẹ đầu để so khớp với ảnh trên chip.</p><button class="b" onclick="A.kyc()">Hoàn tất xác thực</button></div>`}
+function U(){return S.users.find(u=>u.e==S.me)}
+function bind(){['kyc','ks','nfc','shop'].forEach(k=>Object.defineProperty(S,k,{get(){return (U()||{})[k]},set(v){const u=U();if(u)u[k]=v},configurable:true,enumerable:false}))}
+const G=[['lanphuong.creator@gmail.com','Lan Phương'],['quanghuy.store@gmail.com','Quang Huy']];
+function vG(){const x=`<div class='c' style='max-width:420px;margin:24px auto'>`;if(S.gg==2)return x+`<b>Tạo tài khoản KOLink</b><p class='m'>Google đã xác nhận ${esc(S.gnew.e)}. Bạn tham gia với tư cách:</p><div class='acts'><button class='b' onclick='A.gr(0)'>KOC / Creator</button><button class='b' onclick='A.gr(1)'>Nhãn hàng / Seller</button></div><div class='acts'><button class='b g' onclick='A.g(0)'>Hủy</button></div></div>`;return x+`<b>Chọn tài khoản Google</b><p class='m'>để tiếp tục tới KOLink. KOLink chỉ nhận tên và email của bạn, không nhận mật khẩu Google.</p>`+G.map((a,i)=>`<button class='b g' style='display:block;width:100%;text-align:left;margin:6px 0' onclick='A.gp(${i})'>${a[1]}<br><span class='m'>${a[0]}</span></button>`).join('')+`<input id='ge' type='email' placeholder='Hoặc nhập email Google khác' style='margin-top:8px'>${S.err?`<p style='color:var(--wn)' role='alert'>${esc(S.err)}</p>`:''}<div class='acts'><button class='b' onclick='A.gp(-1)'>Dùng email này</button><button class='b g' onclick='A.g(0)'>Hủy</button></div><p class='m'>Màn hình giả lập, chưa kết nối Google thật.</p></div>`}
+function vAuth(){if(S.gg)return vG();const e=S.err?`<p style='color:var(--wn)' role='alert'>${esc(S.err)}</p>`:'',tb=(m,l)=>`<button class='${(S.au=='reg')==!!m?'on':''}' onclick='A.au(${m})'>${l}</button>`;let h=`<div class='c' style='max-width:420px;margin:24px auto'><div class='seg' style='margin-bottom:14px'>${tb(0,'Đăng nhập')}${tb(1,'Đăng ký')}</div>`;
+if(S.pend)h+=`<b>Xác thực tài khoản</b><p class='m'>Mã OTP đã gửi tới ${esc(S.pend.e)}. (Demo: nhập 123456)</p><input id='ot' inputmode='numeric' placeholder='Mã 6 số'>${e}<div class='acts'><button class='b' onclick='A.otp()'>Xác nhận</button><button class='b g' onclick='A.au(1)'>Quay lại</button></div>`;
+else if(S.au=='login')h+=`<b>Chào mừng quay lại</b><p class='m'>Đăng nhập để tiếp tục booking.</p><div style='display:grid;gap:8px'><input id='le' type='email' placeholder='Email' value='${esc(S.fv)}' autocomplete='username'><input id='lp' type='password' placeholder='Mật khẩu' autocomplete='current-password'></div>${e}<div class='acts'><button class='b' onclick='A.login()'>Đăng nhập</button></div><div class='acts'><button class='b g' style='width:100%' onclick='A.g(1)'>G&nbsp; Tiếp tục với Google</button></div><p class='m' style='margin-top:16px'>Tài khoản demo (mật khẩu 123456):</p><div class='acts'><button class='b g' onclick='A.qd(0)'>Seller</button><button class='b g' onclick='A.qd(1)'>KOC</button><button class='b g' onclick='A.qd(2)'>Admin</button></div>`;
+else h+=`<b>Tạo tài khoản</b><p class='m'>Bạn tham gia với tư cách:</p><div class='seg' style='margin-bottom:10px'><button class='${S.ar=='koc'?'on':''}' onclick='A.ar(0)'>KOC / Creator</button><button class='${S.ar=='seller'?'on':''}' onclick='A.ar(1)'>Nhãn hàng / Seller</button></div><div style='display:grid;gap:8px'><input id='rn' placeholder='${S.ar=='koc'?'Tên hiển thị':'Tên gian hàng'}'><input id='re' type='email' placeholder='Email' value='${esc(S.fv)}'><input id='rp' type='password' placeholder='Mật khẩu (từ 6 ký tự)' autocomplete='new-password'></div>${e}<div class='acts'><button class='b' onclick='A.reg()'>Tiếp tục</button></div><div class='acts'><button class='b g' style='width:100%' onclick='A.g(1)'>G&nbsp; Đăng ký bằng Google</button></div>`;
+return h+'</div>'}
+function vNt(){const l=S.nt.filter(n=>n.to=='all'||n.to==S.role);return l.length?l.map(n=>`<div class="c r"><span>${esc(n.m)}</span><span class="m">${n.t}</span></div>`).join(''):'<div class="c m">Chưa có thông báo.</div>'}
+function card(c){let a='',x='';const mk=(l,fn,g)=>`<button class="b ${g?'g':''}" onclick="A.${fn}(${c.id})">${l}</button>`;
+if(c.st=='APPLIED')a=isS()?mk('Duyệt KOC này','ok'):'<span class="m">Đang chờ Seller duyệt</span>';
+if(c.st=='SIGN'){x=`<p class="m">Seller: ${c.sS?'✔ đã ký':'chưa ký'} · KOC: ${c.sK?'✔ đã ký':'chưa ký'} · KPI: ${c.tg} đơn thành công, chia tiền theo bậc 100% / 70% / 40% / 0%</p>`;a=(isS()&&!c.sS)||(!isS()&&!c.sK)?mk('Ký hợp đồng (OTP giả lập)','sign'):''}
+if(c.st=='FUND')a=isS()?mk('Nạp cọc '+f(c.fee),'fund'):'<span class="m">Chờ Seller nạp cọc vào escrow</span>';
+if(c.st=='ACTIVE'||c.st=='MEAS'){const sm={none:'Chưa xin hàng mẫu',req:'KOC đã xin hàng, chờ duyệt',ship:'Đã gửi hàng, theo dõi 7 ngày',done:'Đã giao – hạn lên video 7 ngày'}[c.sm];x=`<p class="m">Hàng mẫu: ${sm}${c.late?' · ⚠ quá hạn 7 ngày, bị trừ điểm tín nhiệm':''}</p>`;
+if(c.sm=='none'&&!isS())a=mk('Xin hàng mẫu (1 chạm)','req');if(c.sm=='req'&&isS())a=mk('Duyệt & tạo vận đơn','ship');if(c.sm=='ship'&&isS())a=mk('Mô phỏng: hàng đã giao','got','g');if(c.sm=='done'&&isS()&&!c.late&&c.st=='ACTIVE')a+=mk('Mô phỏng: KOC trễ 7 ngày','late','g');
+if(c.st=='ACTIVE'&&!isS())a+=`<input id="u${c.id}" placeholder="Dán link video đã đăng" style="max-width:260px"><button class="b" onclick="A.sub(${c.id})">Nộp video</button>`}
+if(c.st=='MEAS'){const p=Math.min(100,c.or/c.tg*100);x+=`<p class="m">Video: ${esc(c.url)}</p><div class="bar"><i style="width:${p}%"></i></div><p class="m">${c.or}/${c.tg} đơn thành công (${Math.round(p)}%)</p>`;a=mk('Đồng bộ API sàn (giả lập)','sim','g')+(isS()?mk('Chốt KPI & giải ngân','settle'):'')+(S.role=='admin'?'':`<input id="d${c.id}" placeholder="Lý do khiếu nại" style="max-width:220px"><button class="b g" onclick="A.disp(${c.id})">Khiếu nại</button>`)}
+if(c.st=='DONE')x=`<p class="m">KPI đạt ${Math.round(c.kpi*100)}% · KOC nhận ròng ${f(c.paid)}</p>`;
+if(c.st=='DISP')x=`<p class="m">Lý do: ${esc(c.dr)}. Tiền bị đóng băng, chờ admin phán quyết.</p>`;if(S.role=='admin')a=c.st=='DISP'?mk('Chốt theo dữ liệu sàn','settle')+mk('Hoàn cọc về Seller','refund',1):'';return `<div class="c"><div class="r"><b>${esc(c.t)}</b><span class="t ${c.st=='DONE'?'ok':''}">${ST[c.st]}</span></div><div class="m">Phí ${f(c.fee)} · KOC: ${esc(c.kn||'Minh Anh')} ✔</div>${stp(c)}${x}<div class="acts">${a}</div></div>`}
+function vCamp(){let h='';
+if(isS()&&!S.shop)h+=`<div class="ban"><b>Bước 1: Kết nối gian hàng</b><p class="m">KOLink chỉ cần quyền đọc đơn hàng để đo KPI tự động, không có quyền rút tiền.</p><button class="b" onclick="A.shop('Shopee')">Kết nối Shopee</button> <button class="b g" onclick="A.shop('TikTok Shop')">Kết nối TikTok Shop</button></div>`;else if(isS()){h+=`<span class="t ok">✔ Đã kết nối ${esc(S.shop)}</span><h2>Tạo chiến dịch</h2><div class="c f"><div><label>Tên chiến dịch</label><input id="ct" placeholder="VD: Review kem chống nắng"></div><div><label>Ngân sách (đ)</label><input id="cf" type="number" value="2000000"></div><div><label>Mục tiêu (đơn)</label><input id="cg" type="number" value="40"></div><button class="b" onclick="A.add()">Đăng</button></div>`}
+else if(!S.kyc)h+=kycUI();
+else h+=`<span class="t ok">✔ Verified Creator</span>`;
+h+='<h2>Chiến dịch đang mở</h2>';
+S.camps.forEach(k=>{const ap=S.cons.some(c=>c.cid==k.id&&c.ke==S.me);h+=`<div class="c"><div class="r"><div><b>${esc(k.t)}</b><div class="m">Ngân sách ${f(k.fee)} · mục tiêu ${k.tg} đơn</div></div>${isS()?`<span class="t">${S.cons.filter(c=>c.cid==k.id).length} KOC apply</span>`:`<button class="b" ${!S.kyc||ap?'disabled':''} onclick="A.apply(${k.id})">${ap?'Đã apply':'Apply'}</button>`}</div></div>`});return h}
+function mine(){return S.role=='koc'?S.cons.filter(c=>c.ke==S.me):S.cons}function vCon(){return mine().length?mine().map(card).join(''):'<div class="c m">Chưa có hợp đồng. Vào “Chiến dịch” và để KOC apply.</div>'}
+function vLed(){const held=S.cons.reduce((a,c)=>a+(['ACTIVE','MEAS','DISP'].includes(c.st)?c.fee-c.paid-(c.paid/.95-c.paid):0),0);
+return `<div class="c"><span class="m">Tiền đang bảo chứng (escrow)</span><div class="big">${f(held)}</div></div><div class="c tb"><table><tr><th>Giờ</th><th>Nội dung</th><th>Nợ</th><th>Có</th><th>Số tiền</th></tr>${S.led.map(l=>`<tr><td>${l.t}</td><td>${esc(l.d)}</td><td>${l.dr}</td><td>${l.cr}</td><td>${f(l.a)}</td></tr>`).join('')||'<tr><td colspan=5 class="m">Chưa có bút toán</td></tr>'}</table></div><p class="m">Mỗi giao dịch ghi hai bên (nợ/có), chỉ thêm mới, không sửa.</p>`}
+function vScore(){const s=score(),r=[...S.oth,[U().n+' (bạn)',s]].filter(x=>x[1]!==null).sort((a,b)=>b[1]-a[1]);
+return `<div class="c m">Điểm = 60% tỷ lệ hoàn thành KPI + 40% đúng hạn. Không tính theo số follower.</div>`+r.map((x,i)=>`<div class="c r"><span>${i+1}. ${esc(x[0])}</span><b>${x[1]}</b></div>`).join('')+(s===null?'<p class="m">Hoàn tất một hợp đồng để Minh Anh vào bảng xếp hạng.</p>':'')}
+function vTax(){const inc=S.cons.filter(c=>c.ke==S.me).reduce((a,c)=>a+c.paid,0),p=inc/S.lim*100,w=p>=100?['wn','Đã vượt ngưỡng: cần kê khai thuế.']:p>=90?['wn','Sắp chạm ngưỡng (≥90%).']:p>=70?['wn','Đã dùng ≥70% ngưỡng.']:['ok','Còn an toàn so với ngưỡng.'];
+return `<div class="c"><span class="m">Thu nhập qua KOLink (ròng)</span><div class="big">${f(inc)}</div><div class="bar"><i style="width:${Math.min(100,p)}%"></i></div><span class="t ${w[0]}">${w[1]}</span><p class="m">Ngưỡng cảnh báo/năm (chỉnh được, xác nhận với kế toán):</p><input type="number" value="${S.lim}" onchange="S.lim=Math.max(1,+this.value);R()" style="max-width:220px"></div><div class="c tb"><table><tr><th>Hợp đồng</th><th>Thu nhập ròng</th></tr>${S.cons.filter(c=>c.paid&&c.ke==S.me).map(c=>`<tr><td>${esc(c.t)}</td><td>${f(c.paid)}</td></tr>`).join('')||'<tr><td colspan=2 class="m">Chưa có khoản thu</td></tr>'}</table></div>`}
+function R(){save();if(!S.me){$('role').innerHTML='';$('nav').innerHTML='';$('v').innerHTML=vAuth();return}$('role').innerHTML=`<span class='m' style='padding:0 8px;align-self:center'>${esc(U().n)} · ${{seller:'Seller',koc:'KOC',admin:'Admin'}[S.role]}</span><button onclick='A.out()'>Đăng xuất</button>`;
+const nn=S.nt.filter(n=>n.to=='all'||n.to==S.role).length,ad=S.role=='admin';if(ad&&!['con','led'].includes(S.tab))S.tab='con';const T=ad?[['con','Khiếu nại & hợp đồng'],['led','Sổ cái escrow']]:[['camp','Chiến dịch'],['con','Hợp đồng'],['nt','Thông báo ('+nn+')'],['led','Sổ cái escrow'],['sc','Tín nhiệm']].concat(S.role=='koc'?[['tax','Thuế']]:[]);$('nav').innerHTML=T.map(t=>`<button class="${S.tab==t[0]?'on':''}" onclick="A.tab('${t[0]}')">${t[1]}</button>`).join('');
+$('v').innerHTML={camp:vCamp,con:vCon,nt:vNt,led:vLed,sc:vScore,tax:vTax}[S.tab]()}
+R();
+</script></body></html>
