@@ -2,11 +2,11 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>KOLink: escrow-backed KOC booking, real orders in then money moves</title><meta name="description" content="Sellers fund an escrow account. KOCs get 30% when the video goes live, and the rest is paid out based on successful marketplace orders.">
-<meta name="theme-color" content="#0C1F17"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Bricolage+Grotesque:wght@700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<meta name="theme-color" content="#0C1F17"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 --bg:#F3EEE3;--cd:#FFFCF5;--tx:#13221B;--mu:#5F6E66;--bd:#DDD5C4;--ac:#0E5A44;--ac2:#E3EFDF;--on:#fff;--hi:#FF5A2C;--lime:#D5F44B;--wn:#B14F08;--ok:#0C7A49;--ink:#0C1F17;--fill:linear-gradient(90deg,#0E5A44,#6FD35A);--glow:rgba(213,244,75,.45);--bo:.8;--sh:0 1px 0 rgba(12,31,23,.04),0 18px 36px -22px rgba(12,31,23,.35);
---fd:'Bricolage Grotesque','Be Vietnam Pro',system-ui,sans-serif;--fb:'Be Vietnam Pro',system-ui,sans-serif;--fm:'JetBrains Mono',ui-monospace,Menlo,monospace}
+--fd:'Plus Jakarta Sans','Segoe UI',system-ui,-apple-system,sans-serif;--fb:'Plus Jakarta Sans','Segoe UI',system-ui,-apple-system,sans-serif;--fm:'Plus Jakarta Sans','Segoe UI',system-ui,-apple-system,sans-serif}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#09130E;--cd:#101E17;--tx:#EDF3E6;--mu:#8FA398;--bd:#1F3328;--ac:#CDF458;--ac2:#18291E;--on:#09130E;--hi:#FF7447;--lime:#CDF458;--wn:#F4A55A;--ok:#7CE3A8;--ink:#EDF3E6;--fill:#CDF458;--glow:rgba(205,244,88,.08);--bo:.3;--sh:0 18px 36px -22px #000}}
 :root[data-theme="dark"]{--bg:#09130E;--cd:#101E17;--tx:#EDF3E6;--mu:#8FA398;--bd:#1F3328;--ac:#CDF458;--ac2:#18291E;--on:#09130E;--hi:#FF7447;--lime:#CDF458;--wn:#F4A55A;--ok:#7CE3A8;--ink:#EDF3E6;--fill:#CDF458;--glow:rgba(205,244,88,.08);--bo:.3;--sh:0 18px 36px -22px #000}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
@@ -96,7 +96,7 @@ body[data-v=land] .w{max-width:none;padding:0}body[data-v=land] .top{display:non
 .nr{margin-left:auto;display:flex;align-items:center;gap:6px}.nr .lg{background:none;border:0;color:#EDF3E6;font:inherit;font-weight:600;cursor:pointer;padding:8px 12px}
 .k .b{border-radius:12px}.b.wt{background:#fff;color:#0C1F17}.b.dk{background:var(--ink);color:var(--bg);box-shadow:0 14px 28px -12px rgba(12,31,23,.65)}.b.ol{background:var(--cd);color:var(--ink);border:1px solid var(--bd)}.k .b.xl{padding:15px 26px}.ar{display:inline-block;margin-left:10px;transition:transform .2s}.b:hover .ar{transform:translateX(4px)}
 .hero2{text-align:center;padding:76px 0 36px}.hero2 .eyebrow{text-transform:uppercase;letter-spacing:.07em;font-size:12px;box-shadow:var(--sh)}
-.hero2 h1{font:800 clamp(46px,9vw,112px)/.94 var(--fd);letter-spacing:-.055em;margin:28px 0 24px;color:var(--ink)}.hero2 h1 .ln{display:block}.hw{display:inline-block}
+.hero2 h1{font:800 clamp(42px,8.2vw,100px)/.98 var(--fd);letter-spacing:-.045em;margin:28px 0 24px;color:var(--ink)}.hero2 h1 .ln{display:block}.hw{display:inline-block}
 .hero2 h1 em{font-style:normal;background:linear-gradient(var(--lime),var(--lime)) no-repeat 0 90%/100% .36em;padding:0 .05em}
 .hero2 .lead{margin:0 auto 30px}.hero2 .acts{justify-content:center}.hero2 .nt a{color:var(--ink);font-weight:600}
 .mqw{margin:34px 0 8px}.mqm{overflow:hidden;margin-top:16px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
@@ -162,6 +162,7 @@ body[data-v=land] .w>p.m{display:none}
 @media(max-width:900px){.kcs,.cs,.ftg{grid-template-columns:1fr;gap:36px}.cp{min-height:400px}}
 @media(max-width:560px){.vr{grid-template-columns:1fr}.vc:nth-child(2){margin-top:0}.vc{min-height:0}.sc4{grid-template-columns:1fr 1fr}.ar2{grid-template-columns:120px 1fr 36px}.fr{flex-direction:column}.fr .b{padding:14px}.cw1{width:68%}.cw2,.cw3{width:80%}}
 @media(prefers-reduced-motion:no-preference){.spk i{transition:height 1s .3s}body.fx .rv:not(.in) .spk i{height:6%}}
+.big,.bal,.st b,.stc b,.lr .p,.kr em,.tr em,.ar2 em,.sc4 b,.rg b,.vc em,.chip2 b,.big *{font-variant-numeric:tabular-nums}.k h2{letter-spacing:-.035em}.wm{letter-spacing:-.05em}
 </style></head><body><div class="w">
 <div class="top"><div class="logo"><span class="mk"><i></i><i></i></span><div><b>KOLink</b><span class="s">Escrow-backed KOC booking</span></div></div>
 <div class="seg" id="role"></div></div>
